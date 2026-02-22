@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+pydantic
+langgraph
+langchain-anthropic
+psycopg2-binary
+redis
+pgvector
+python-dotenv
