@@ -68,11 +68,12 @@ def status():
         console.print("[red]Orchestrator is offline.[/red]\nStart it with [bold]tracecontext serve[/bold] or docker-compose.")
 
 @main.command()
-def serve():
+@click.option("--host", default="0.0.0.0", show_default=True, help="Host to bind to.")
+@click.option("--port", default=8000, show_default=True, help="Port to listen on.")
+def serve(host, port):
     """Start the TraceContext Orchestrator server."""
-    console.print("[yellow]Starting TraceContext Orchestrator...[/yellow]")
-    # In a real package, we'd use uvicorn to run tracecontext.orchestrator.main:app
-    subprocess.run(["uvicorn", "tracecontext.orchestrator.main:app", "--host", "0.0.0.0", "--port", "8000"])
+    console.print(f"[yellow]Starting TraceContext Orchestrator on {host}:{port}...[/yellow]")
+    subprocess.run(["uvicorn", "tracecontext.orchestrator.main:app", "--host", host, "--port", str(port)])
 
 @main.command()
 @click.argument("query")
@@ -87,6 +88,27 @@ def search(query):
             console.print(Panel(res, title="Context Found"))
     except Exception:
         console.print("[red]Error connecting to orchestrator.[/red]")
+
+@main.command(name="mcp")
+def mcp_command():
+    """Start the TraceContext MCP server for Claude Code / Cursor / Antigravity.
+
+    Add this to ~/.claude/claude_desktop_config.json:
+
+    \b
+    {
+      "mcpServers": {
+        "tracecontext": {
+          "command": "tracecontext",
+          "args": ["mcp"],
+          "env": { "ORCHESTRATOR_URL": "http://localhost:8000" }
+        }
+      }
+    }
+    """
+    from tracecontext.mcp_server import mcp as server
+    server.run()
+
 
 if __name__ == "__main__":
     main()

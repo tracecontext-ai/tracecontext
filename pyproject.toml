@@ -1,0 +1,60 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tracecontext"
+version = "0.1.0"
+description = "Persistent AI coding context platform — Git tracks your code history. TraceContext tracks your intent history."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.9"
+authors = [{ name = "TraceContext Team" }]
+keywords = ["ai", "context", "memory", "adr", "developer-tools", "llm", "langchain"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+dependencies = [
+    "fastapi>=0.100.0",
+    "uvicorn[standard]>=0.23.0",
+    "pydantic>=2.0.0",
+    "langgraph>=0.1.0",
+    "langchain-openai>=0.1.0",
+    "mcp>=1.0.0",
+    "click>=8.0.0",
+    "requests>=2.28.0",
+    "python-dotenv>=1.0.0",
+    "rich>=13.0.0",
+]
+
+[project.optional-dependencies]
+db = [
+    "psycopg2-binary>=2.9.0",
+    "redis>=4.0.0",
+]
+all = [
+    "tracecontext[db]",
+]
+
+[project.scripts]
+tracecontext = "tracecontext.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/tracecontext/tracecontext"
+Repository = "https://github.com/tracecontext/tracecontext"
+"Bug Tracker" = "https://github.com/tracecontext/tracecontext/issues"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["tracecontext*"]
+exclude = ["tests*"]
