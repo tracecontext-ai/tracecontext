@@ -8,6 +8,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 from .graph import app_graph
+from ..agents.ranker import ContextRanker
 
 app = FastAPI(
     title="TraceContext Orchestrator",
@@ -59,8 +60,26 @@ async def receive_event(event: Event):
 async def get_context(query: str = ""):
     if not query:
         return {"context": context_store}
+
+    # Keyword filter first
     filtered = [c for c in context_store if query.lower() in c.lower()]
-    return {"context": filtered or context_store, "query": query}
+    candidates = filtered or context_store
+
+    # Re-rank by relevance using ContextRanker when a query is given
+    try:
+        ranker = ContextRanker()
+        chunks = [{"id": str(i), "content": c} for i, c in enumerate(candidates)]
+        ranking = ranker.rank(task_description=query, context_chunks=chunks)
+        scored = sorted(
+            zip(ranking.scores, candidates),
+            key=lambda x: x[0].relevance_score,
+            reverse=True,
+        )
+        ranked_results = [c for _, c in scored]
+        return {"context": ranked_results, "query": query}
+    except Exception as exc:
+        logger.warning("Ranker failed, returning unranked results: %s", exc)
+        return {"context": candidates, "query": query}
 
 
 @app.post("/reset")
