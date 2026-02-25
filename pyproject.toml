@@ -8,12 +8,11 @@ version = "0.1.0"
 description = "Persistent AI coding context platform — Git tracks your code history. TraceContext tracks your intent history."
 readme = "README.md"
 license = { text = "MIT" }
-requires-python = ">=3.9"
+requires-python = ">=3.10"
 authors = [{ name = "Sanika Deshmukh Tungare" }]
 keywords = ["ai", "context", "memory", "adr", "developer-tools", "llm", "langchain"]
 classifiers = [
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
