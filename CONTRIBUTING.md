@@ -9,7 +9,7 @@ Thank you for your interest in contributing! TraceContext is an open-source proj
 ### 1. Fork and clone
 
 ```bash
-git clone https://github.com/sanikacentric/tracecontext.git
+git clone https://github.com/tracecontext-ai/tracecontext.git
 cd tracecontext
 ```
 
@@ -82,7 +82,7 @@ tracecontext/
 
 ## Reporting Bugs
 
-Open an issue at [github.com/sanikacentric/tracecontext/issues](https://github.com/sanikacentric/tracecontext/issues) with:
+Open an issue at [github.com/tracecontext-ai/tracecontext/issues](https://github.com/tracecontext-ai/tracecontext/issues) with:
 - TraceContext version (`pip show tracecontext`)
 - Python version
 - Steps to reproduce

@@ -12,7 +12,7 @@ from fastapi.testclient import TestClient
 def test_package_imports():
     import tracecontext
     assert tracecontext.__version__ == "0.1.0"
-    assert tracecontext.__author__ == "sanikacentric"
+    assert tracecontext.__author__ == "Sanika Deshmukh Tungare"
 
 
 # ── Agents — demo/fallback mode (no API key) ─────────────────────────────────

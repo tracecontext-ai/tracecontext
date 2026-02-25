@@ -452,13 +452,13 @@ HTML = """<!DOCTYPE html>
 
 <!-- ── Nav ──────────────────────────────────────────────────────────────────── -->
 <nav>
-  <div class="nav-logo">⬡ TraceContext</div>
+  <div class="nav-logo">⬡ TraceContext <span style="font-weight:400;opacity:.55;font-size:.8em">· tracecontext-ai</span></div>
   <div class="nav-links">
     <a href="#about">About</a>
     <a href="#how">How it Works</a>
     <a href="#demo">Live Demo</a>
     <a href="#quickstart">Install</a>
-    <a href="https://github.com/tracecontext/tracecontext" target="_blank">GitHub ↗</a>
+    <a href="https://github.com/tracecontext-ai/tracecontext" target="_blank">GitHub ↗</a>
     <div class="status-pill">
       <span class="dot" id="orch-dot"></span>
       <span id="orch-label">checking…</span>
@@ -468,7 +468,7 @@ HTML = """<!DOCTYPE html>
 
 <!-- ── Hero ─────────────────────────────────────────────────────────────────── -->
 <header class="hero">
-  <div class="hero-badge">✦ Open Source &nbsp;·&nbsp; MIT License &nbsp;·&nbsp; v0.1.0</div>
+  <div class="hero-badge">✦ Open Source &nbsp;·&nbsp; MIT License &nbsp;·&nbsp; v0.1.0 &nbsp;·&nbsp; <a href="https://github.com/tracecontext-ai/tracecontext" target="_blank" style="color:inherit;text-decoration:underline dotted">github.com/tracecontext-ai</a></div>
   <h1>Your codebase now has a memory.<br><span class="grad">TraceContext tracks your intent history — automatically.</span></h1>
   <p>
     Every architectural decision automatically captured. Every dead-end documented.
@@ -476,7 +476,7 @@ HTML = """<!DOCTYPE html>
   </p>
   <div class="cta-row">
     <button class="btn-primary" onclick="scrollTo('#demo')">▶&nbsp; Run Live Demo</button>
-    <a class="btn-secondary" href="https://github.com/tracecontext/tracecontext" target="_blank">⭐&nbsp; Star on GitHub</a>
+    <a class="btn-secondary" href="https://github.com/tracecontext-ai/tracecontext" target="_blank">⭐&nbsp; Star on GitHub</a>
   </div>
   <div class="install-pill">
     <code>$ pip install tracecontext</code>
@@ -815,7 +815,7 @@ HTML = """<!DOCTYPE html>
           TraceContext is infrastructure for your team's institutional memory.
         </p>
       </div>
-      <a class="btn-secondary" href="https://github.com/tracecontext/tracecontext" target="_blank" style="white-space:nowrap">⭐ View on GitHub</a>
+      <a class="btn-secondary" href="https://github.com/tracecontext-ai/tracecontext" target="_blank" style="white-space:nowrap">⭐ View on GitHub</a>
     </div>
   </div>
 </div>
@@ -949,8 +949,8 @@ HTML = """<!DOCTYPE html>
 <!-- ── Footer ────────────────────────────────────────────────────────────────── -->
 <footer>
   <p>
-    <strong style="color:var(--text)">TraceContext</strong> &nbsp;·&nbsp; MIT License &nbsp;·&nbsp;
-    <a href="https://github.com/tracecontext/tracecontext">github.com/tracecontext/tracecontext</a>
+    <strong style="color:var(--text)">TraceContext</strong> &nbsp;·&nbsp; MIT License &nbsp;·&nbsp; © 2025 Sanika Deshmukh Tungare &nbsp;·&nbsp;
+    <a href="https://github.com/tracecontext-ai/tracecontext">github.com/tracecontext-ai/tracecontext</a>
   </p>
   <p>Built with FastAPI · LangGraph · GPT-4o-mini · MCP 1.26</p>
 </footer>
